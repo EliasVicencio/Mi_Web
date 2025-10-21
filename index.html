@@ -616,6 +616,9 @@
     .fadeInUp {
       animation: fadeInUp 0.8s ease forwards;
     }
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -963,7 +966,7 @@
     });
     
     // Form submission
-    const contactForm = document.getElementById('contactForm');
+    const contactForm = document.querySelector('form[name="contacto"]');
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
@@ -991,5 +994,6 @@
   </script>
 </body>
 </html>
+
 
 
