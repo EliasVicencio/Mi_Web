@@ -330,70 +330,208 @@ section {
     background-clip: text;
 }
 
-/* Projects Section */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+/* Projects Section - Carrusel */
+#projects {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0 40px;
+  margin-top: 40px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .project-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
+  min-width: calc(33.333% - 20px);
+  flex-shrink: 0;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
 }
 
 .dark-mode .project-card {
-    background: #1e293b;
+  background: #1e293b;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
 }
 
 .project-img {
-    height: 200px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 5rem;
-    opacity: 0.9;
+  height: 200px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 5rem;
+  opacity: 0.9;
+  transition: var(--transition);
+}
+
+.project-card:hover .project-img {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .project-content {
-    padding: 25px;
+  padding: 25px;
 }
 
 .project-content h3 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .project-tags {
-    display: flex;
-    gap: 10px;
-    margin: 15px 0;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap;
 }
 
 .project-tag {
-    background: rgba(37, 99, 235, 0.1);
-    color: var(--primary);
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 500;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.project-tag:hover {
+  background: var(--primary);
+  color: white;
 }
 
 .project-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Botones de navegación */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  color: var(--dark);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#projects:hover .carousel-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+.carousel-btn:hover {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.carousel-btn.prev {
+  left: 20px;
+}
+
+.carousel-btn.next {
+  right: 20px;
+}
+
+/* Indicadores */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gray);
+  opacity: 0.3;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  padding: 0;
+}
+
+.indicator.active {
+  opacity: 1;
+  background: var(--primary);
+  transform: scale(1.2);
+  width: 30px;
+  border-radius: 10px;
+}
+
+.indicator:hover {
+  opacity: 0.8;
+  background: var(--primary);
+}
+
+/* Responsive para el carrusel */
+@media (max-width: 992px) {
+  .project-card {
+    min-width: calc(50% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    min-width: 100%;
+  }
+  
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  .carousel-btn.prev {
+    left: 10px;
+  }
+  
+  .carousel-btn.next {
+    right: 10px;
+  }
+  
+  .indicator {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .indicator.active {
+    width: 25px;
+  }
 }
 
 /* Contact Section */
@@ -620,4 +758,152 @@ footer {
 /* Si también quieres que el texto dentro de los campos de entrada sea blanco */
 .dark-mode .form-control {
     color: #f8fafc;
+}
+
+/* ARREGLO CRUCIAL PARA EL CARRUSEL */
+#projects .container {
+    position: relative;
+    overflow: visible;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.carousel-track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 30px !important;
+    transition: transform 0.5s ease-in-out !important;
+    will-change: transform;
+}
+
+.project-card {
+    flex: 0 0 auto !important;
+    width: calc(33.333% - 20px) !important;
+    min-width: auto !important;
+}
+
+@media (max-width: 992px) {
+    .project-card {
+        width: calc(50% - 15px) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        width: 100% !important;
+    }
+}
+
+/* Asegurar que los botones estén bien posicionados */
+#projects {
+    position: relative !important;
+}
+
+.carousel-btn {
+    position: absolute !important;
+    z-index: 100 !important;
+}
+
+.carousel-indicators {
+    position: relative !important;
+    z-index: 50 !important;
+}
+
+/* ===== BOTONES DEL CARRUSEL - CORREGIDOS ===== */
+
+/* Contenedor principal con posición relativa */
+#projects {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hacemos que el contenedor del carrusel tenga padding para dejar espacio a los botones */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 50px !important;  /* Aumentamos el padding horizontal */
+    margin-top: 40px;
+}
+
+/* Posicionamos los botones FUERA del contenedor del carrusel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: var(--dark);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 100;
+    opacity: 0.9;
+}
+
+/* Botón izquierdo - lo movemos más afuera */
+.carousel-btn.prev {
+    left: -20px;  /* Valor negativo para sacarlo del contenedor */
+}
+
+/* Botón derecho - lo movemos más afuera */
+.carousel-btn.next {
+    right: -20px;  /* Valor negativo para sacarlo del contenedor */
+}
+
+/* Hover effects */
+.carousel-btn:hover {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+    opacity: 1;
+}
+
+/* Responsive: en móvil ajustamos para que no se salgan demasiado */
+@media (max-width: 768px) {
+    .carousel-container {
+        padding: 20px 40px !important;
+    }
+    
+    .carousel-btn.prev {
+        left: -10px;
+    }
+    
+    .carousel-btn.next {
+        right: -10px;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Para pantallas muy pequeñas, los dejamos dentro pero semitransparentes */
+@media (max-width: 480px) {
+    .carousel-container {
+        padding: 20px 30px !important;
+    }
+    
+    .carousel-btn.prev {
+        left: -5px;
+    }
+    
+    .carousel-btn.next {
+        right: -5px;
+    }
 }
