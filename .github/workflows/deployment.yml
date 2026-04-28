@@ -9,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: tibor19/static-website-deploy@v4
         with:
+          enabled-static-website: 'true'
           folder: '.'
           connection-string: ${{ secrets.AZURE_CONNECTION_STRING }}
+          container: '$web'
