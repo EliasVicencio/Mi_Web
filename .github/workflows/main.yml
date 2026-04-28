@@ -1,0 +1,15 @@
+name: Deploy to Azure Storage
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: tibor19/static-website-deploy@v4
+        with:
+          folder: '.'
+          connection-string: ${{ secrets.AZURE_CONNECTION_STRING }}
