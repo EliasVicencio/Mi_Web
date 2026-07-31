@@ -1,4 +1,4 @@
-name: Deploy to Azure Storage
+name: Deploy to Oracle VM
 
 on:
   push:
@@ -8,11 +8,24 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - uses: tibor19/static-website-deploy@v4
-        with:
-          enabled-static-website: 'true'
-          folder: '.'
-          connection-string: ${{ secrets.AZURE_CONNECTION_STRING }}
-          container: '$web'
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Desplegar con rsync sobre SSH
+        env:
+          VM_SSH_KEY: ${{ secrets.VM_SSH_KEY }}
+          VM_HOST: ${{ secrets.VM_HOST }}
+          VM_USER: ${{ secrets.VM_USER }}
+          VM_DEPLOY_DIR: ${{ secrets.VM_DEPLOY_DIR }}
+        run: |
+          mkdir -p "$HOME/.ssh"
+          echo "$VM_SSH_KEY" > "$HOME/.ssh/deploy_key"
+          chmod 600 "$HOME/.ssh/deploy_key"
+          rsync -avz --delete \
+            -e "ssh -i $HOME/.ssh/deploy_key -o StrictHostKeyChecking=no -o IdentitiesOnly=yes" \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='deploy' \
+            --exclude='_deploy_keys' \
+            --exclude='DESPLIEGUE-ORACLE.md' \
+            ./ "$VM_USER@$VM_HOST:$VM_DEPLOY_DIR/"
