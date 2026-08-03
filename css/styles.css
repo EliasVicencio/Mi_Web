@@ -1,3 +1,7 @@
+/* ========================================
+   VARIABLES Y CONFIGURACIÓN GLOBAL
+   ======================================== */
+
 :root {
     --primary: #2563eb;
     --secondary: #3b82f6;
@@ -7,13 +11,21 @@
     --transition: all 0.3s ease;
 }
 
+/* ========================================
+   MODO OSCURO ULTRA (CONTRASTE SUAVE)
+   ======================================== */
+
 .dark-mode {
     --primary: #3b82f6;
     --secondary: #60a5fa;
-    --dark: #f8fafc;
-    --light: #0f172a;
+    --dark: #e8edf5;          /* Texto ligeramente más suave (antes #f8fafc) */
+    --light: #0a0a0f;         /* Fondo ultra oscuro */
     --gray: #94a3b8;
 }
+
+/* ========================================
+   RESET Y ESTILOS BASE
+   ======================================== */
 
 * {
     margin: 0;
@@ -77,7 +89,10 @@ section {
     padding: 100px 0;
 }
 
-/* Navbar */
+/* ========================================
+   NAVBAR
+   ======================================== */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -91,8 +106,9 @@ section {
 }
 
 .dark-mode .navbar {
-    background-color: rgba(15, 23, 42, 0.95);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    background-color: rgba(5, 5, 10, 0.98) !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbar.scrolled {
@@ -101,7 +117,7 @@ section {
 }
 
 .dark-mode .navbar.scrolled {
-    background-color: rgba(15, 23, 42, 0.98);
+    background-color: rgba(5, 5, 10, 0.99) !important;
 }
 
 .navbar-brand {
@@ -159,7 +175,10 @@ section {
     color: var(--primary);
 }
 
-/* Hero Section */
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
 #home {
     min-height: 100vh;
     display: flex;
@@ -167,6 +186,10 @@ section {
     background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
     position: relative;
     overflow: hidden;
+}
+
+.dark-mode #home {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(59, 130, 246, 0.03) 100%);
 }
 
 .hero-content {
@@ -183,6 +206,10 @@ section {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
     opacity: 0.05;
+}
+
+.dark-mode .hero-bg {
+    opacity: 0.02;
 }
 
 .hero-img {
@@ -202,6 +229,10 @@ section {
     z-index: 1;
 }
 
+.dark-mode .hero-img {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
+
 .hero-img:before {
     content: "EV";
     position: absolute;
@@ -215,6 +246,10 @@ section {
     display: flex;
     gap: 15px;
 }
+
+/* ========================================
+   BOTONES GLOBALES
+   ======================================== */
 
 .btn {
     padding: 12px 30px;
@@ -238,12 +273,20 @@ section {
     background: transparent;
 }
 
+.dark-mode .btn-outline {
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px -10px rgba(37, 99, 235, 0.5);
 }
 
-/* Skills Section */
+/* ========================================
+   SKILLS SECTION
+   ======================================== */
+
 .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -261,12 +304,19 @@ section {
 }
 
 .dark-mode .skill-card {
-    background: #1e293b;
+    background: #111118;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .skill-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+}
+
+.dark-mode .skill-card:hover {
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
+    border-color: rgba(59, 130, 246, 0.2);
 }
 
 .skill-icon {
@@ -287,7 +337,14 @@ section {
     font-size: 1.5rem;
 }
 
-/* About Section */
+.dark-mode .skill-card p {
+    color: #94a3b8;
+}
+
+/* ========================================
+   ABOUT SECTION
+   ======================================== */
+
 .about-content {
     display: flex;
     gap: 50px;
@@ -303,6 +360,11 @@ section {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .about-img {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .about-img img {
@@ -330,7 +392,14 @@ section {
     background-clip: text;
 }
 
-/* Projects Section - Carrusel */
+.dark-mode .stat-item p {
+    color: #94a3b8;
+}
+
+/* ========================================
+   PROJECTS SECTION - CARRUSEL
+   ======================================== */
+
 #projects {
   position: relative;
   overflow: hidden;
@@ -361,12 +430,19 @@ section {
 }
 
 .dark-mode .project-card {
-  background: #1e293b;
+  background: #111118;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .project-card:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+}
+
+.dark-mode .project-card:hover {
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
+  border-color: rgba(59, 130, 246, 0.15);
 }
 
 .project-img {
@@ -381,6 +457,10 @@ section {
   transition: var(--transition);
 }
 
+.dark-mode .project-img {
+  opacity: 0.7;
+}
+
 .project-card:hover .project-img {
   opacity: 1;
   transform: scale(1.05);
@@ -392,6 +472,14 @@ section {
 
 .project-content h3 {
   margin-bottom: 10px;
+}
+
+.dark-mode .project-content h3 {
+  color: #e8edf5;           /* Texto suave en modo oscuro */
+}
+
+.dark-mode .project-content p {
+  color: #94a3b8;
 }
 
 .project-tags {
@@ -411,6 +499,11 @@ section {
   transition: var(--transition);
 }
 
+.dark-mode .project-tag {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
 .project-tag:hover {
   background: var(--primary);
   color: white;
@@ -422,7 +515,10 @@ section {
   margin-top: 20px;
 }
 
-/* Botones de navegación */
+/* ========================================
+   BOTONES DE NAVEGACIÓN DEL CARRUSEL
+   ======================================== */
+
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -465,7 +561,29 @@ section {
   right: 20px;
 }
 
-/* Indicadores */
+/* ========================================
+   BOTONES CARRUSEL - MODO OSCURO
+   ======================================== */
+
+.dark-mode .carousel-btn {
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #e8edf5;           /* Texto suave en modo oscuro */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .carousel-btn:hover {
+    background: rgba(59, 130, 246, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+}
+
+/* ========================================
+   INDICADORES DEL CARRUSEL
+   ======================================== */
+
 .carousel-indicators {
   display: flex;
   justify-content: center;
@@ -485,6 +603,11 @@ section {
   padding: 0;
 }
 
+.dark-mode .indicator {
+  background: #64748b;
+  opacity: 0.2;
+}
+
 .indicator.active {
   opacity: 1;
   background: var(--primary);
@@ -498,7 +621,10 @@ section {
   background: var(--primary);
 }
 
-/* Responsive para el carrusel */
+/* ========================================
+   RESPONSIVE - CARRUSEL
+   ======================================== */
+
 @media (max-width: 992px) {
   .project-card {
     min-width: calc(50% - 15px);
@@ -534,7 +660,10 @@ section {
   }
 }
 
-/* Contact Section */
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+
 .contact-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -572,6 +701,10 @@ section {
     font-size: 1.2rem;
 }
 
+.dark-mode .contact-text p {
+    color: #94a3b8;
+}
+
 .contact-form {
     background: white;
     padding: 30px;
@@ -580,7 +713,9 @@ section {
 }
 
 .dark-mode .contact-form {
-    background: #1e293b;
+    background: #111118;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .form-group {
@@ -598,9 +733,14 @@ section {
 }
 
 .dark-mode .form-control {
-    background: #1e293b;
-    border-color: #334155;
-    color: white;
+    background: #0a0a0f;
+    border-color: #1a1a2e;
+    color: #e8edf5;           /* Texto suave en modo oscuro */
+}
+
+.dark-mode .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .form-control:focus {
@@ -614,16 +754,22 @@ textarea.form-control {
     resize: vertical;
 }
 
-/* Footer */
+/* ========================================
+   FOOTER - BLANCO EN MODO CLARO
+   ======================================== */
+
 footer {
-    background: var(--dark);
-    color: white;
+    background: #ffffff;       /* Fondo blanco en modo claro */
+    color: #1e293b;
     padding: 40px 0 20px;
     text-align: center;
+    border-top: 1px solid #e2e8f0;
 }
 
 .dark-mode footer {
-    background: #0f172a;
+    background: #05050a;       /* Fondo ultra oscuro en modo oscuro */
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    color: white;
 }
 
 .social-links {
@@ -637,8 +783,8 @@ footer {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: rgba(0, 0, 0, 0.05);  /* Fondo suave en modo claro */
+    color: #1e293b;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -646,8 +792,15 @@ footer {
     transition: var(--transition);
 }
 
+.dark-mode .social-link {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .social-link:hover {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
     transform: translateY(-5px);
 }
 
@@ -660,24 +813,40 @@ footer {
 }
 
 .footer-link {
-    color: rgba(255, 255, 255, 0.7);
+    color: #64748b;            /* Color suave en modo claro */
     text-decoration: none;
     transition: var(--transition);
 }
 
+.dark-mode .footer-link {
+    color: rgba(255, 255, 255, 0.4);
+}
+
 .footer-link:hover {
+    color: var(--primary);
+}
+
+.dark-mode .footer-link:hover {
     color: white;
 }
 
 .copyright {
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
+    border-top: 1px solid #e2e8f0;  /* Borde claro en modo claro */
+    color: #94a3b8;
     font-size: 0.9rem;
 }
 
-/* Responsive */
+.dark-mode .copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.25);
+}
+
+/* ========================================
+   RESPONSIVE GLOBAL
+   ======================================== */
+
 @media (max-width: 992px) {
     h1 {
     font-size: 2.8rem;
@@ -725,7 +894,10 @@ footer {
     }
 }
 
-/* Animations */
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+
 @keyframes fadeInUp {
     from {
     opacity: 0;
@@ -744,23 +916,21 @@ footer {
     display: none;
 }
 
-/* Agrega esto al final de tu archivo CSS */
+/* ========================================
+   ARREGLOS ADICIONALES - FORMULARIO Y CARRUSEL
+   ======================================== */
 
+/* Etiquetas del formulario en modo oscuro */
 .dark-mode .form-group label {
-    color: #f8fafc !important; /* Color blanco para las etiquetas en modo oscuro */
+    color: #e8edf5 !important;   /* Texto suave en modo oscuro */
 }
 
-/* Opcional: También puedes mejorar la visibilidad del placeholder */
+/* Placeholder en modo oscuro */
 .dark-mode .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.3);
 }
 
-/* Si también quieres que el texto dentro de los campos de entrada sea blanco */
-.dark-mode .form-control {
-    color: #f8fafc;
-}
-
-/* ARREGLO CRUCIAL PARA EL CARRUSEL */
+/* Contenedor del carrusel - corrección de overflow */
 #projects .container {
     position: relative;
     overflow: visible;
@@ -798,7 +968,7 @@ footer {
     }
 }
 
-/* Asegurar que los botones estén bien posicionados */
+/* Posicionamiento de botones del carrusel */
 #projects {
     position: relative !important;
 }
@@ -813,24 +983,23 @@ footer {
     z-index: 50 !important;
 }
 
-/* ===== BOTONES DEL CARRUSEL - CORREGIDOS ===== */
+/* ========================================
+   BOTONES DEL CARRUSEL - CORRECCIÓN DE POSICIÓN
+   ======================================== */
 
-/* Contenedor principal con posición relativa */
 #projects {
     position: relative;
     overflow: hidden;
 }
 
-/* Hacemos que el contenedor del carrusel tenga padding para dejar espacio a los botones */
 .carousel-container {
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 20px 50px !important;  /* Aumentamos el padding horizontal */
+    padding: 20px 50px !important;
     margin-top: 40px;
 }
 
-/* Posicionamos los botones FUERA del contenedor del carrusel */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -852,17 +1021,14 @@ footer {
     opacity: 0.9;
 }
 
-/* Botón izquierdo - lo movemos más afuera */
 .carousel-btn.prev {
-    left: -20px;  /* Valor negativo para sacarlo del contenedor */
+    left: -20px;
 }
 
-/* Botón derecho - lo movemos más afuera */
 .carousel-btn.next {
-    right: -20px;  /* Valor negativo para sacarlo del contenedor */
+    right: -20px;
 }
 
-/* Hover effects */
 .carousel-btn:hover {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
@@ -871,7 +1037,7 @@ footer {
     opacity: 1;
 }
 
-/* Responsive: en móvil ajustamos para que no se salgan demasiado */
+/* Responsive para botones del carrusel */
 @media (max-width: 768px) {
     .carousel-container {
         padding: 20px 40px !important;
@@ -893,7 +1059,6 @@ footer {
     }
 }
 
-/* Para pantallas muy pequeñas, los dejamos dentro pero semitransparentes */
 @media (max-width: 480px) {
     .carousel-container {
         padding: 20px 30px !important;
