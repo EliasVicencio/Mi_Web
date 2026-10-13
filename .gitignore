@@ -1,2 +1,14 @@
-# Archivos de despliegue: nunca subir llaves privadas al repositorio
+# Llaves y secretos: nunca al repositorio
 _deploy_keys/
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+# Editor / sistema
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+node_modules/
