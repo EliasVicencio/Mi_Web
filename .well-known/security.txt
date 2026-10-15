@@ -1,0 +1,4 @@
+Contact: https://eliasvicencio.cl/#contact
+Expires: 2027-06-30T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://eliasvicencio.cl/.well-known/security.txt
