@@ -9,23 +9,12 @@
   <link rel="canonical" href="https://eliasvicencio.cl/">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="utils/theme.js"></script>
-  <!-- Aplica el tema antes de pintar (evita el parpadeo). Antes era js/theme.js -->
-  <script>
-    (function () {
-      var root = document.documentElement;
-      root.classList.add('js');
-      try {
-        var saved = localStorage.getItem('theme');
-        if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
-      } catch (e) {}
-    })();
-  </script>
+  <script src="/theme.js"></script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-P53XXZ8Q"></script>
+  <script src="/gtag-init.js"></script>
 </head>
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-P53XXZ8Q"></script>
-  <script src="/gtag-init.js"></script>
 </body>
 </html>
