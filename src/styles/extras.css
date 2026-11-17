@@ -4,3 +4,20 @@ main{min-height:70vh}
 main > section:first-child:not(.hero){padding-top:140px}
 /* El inicio ya tiene hero; las secciones siguientes pueden ir más juntas */
 .home-extra{padding-top:56px;padding-bottom:72px}
+
+/* ===== Navbar estilo glass ===== */
+.nav{
+  background:color-mix(in srgb,var(--surface) 50%,transparent);
+  -webkit-backdrop-filter:blur(18px) saturate(170%);
+  backdrop-filter:blur(18px) saturate(170%);
+  border-bottom:1px solid color-mix(in srgb,var(--text) 10%,transparent);
+  box-shadow:0 8px 32px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.nav .icon-btn{
+  background:color-mix(in srgb,var(--surface) 55%,transparent);
+}
+
+/* En móvil, el menú desplegable queda casi opaco para que se lea bien */
+@media (max-width:760px){
+  .links{background:color-mix(in srgb,var(--bg) 92%,transparent)}
+}

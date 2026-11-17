@@ -81,7 +81,7 @@ export default function Home() {
             <p className="eyebrow">Stack</p>
             <h2 id="home-stack">Herramientas que <span className="grad">uso</span></h2>
             <p className="sec-lead">
-              Python, Java y Kotlin en el backend; React en el frontend; SQL para los datos. Git y Docker para
+              Python, Java y Kotlin en el backend; React en el frontend; SQL y Mongo para los datos. Git y Docker para
               versionar y desplegar con orden.
             </p>
           </header>

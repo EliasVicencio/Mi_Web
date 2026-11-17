@@ -15,9 +15,9 @@ export const skills = [
     text: 'Aplicaciones Android en Kotlin, con consumo de APIs y persistencia local.',
   },
   {
-    icon: 'db',
-    title: 'Bases de datos',
-    text: 'Modelado e implementación en PostgreSQL, MySQL y SQLite, con consultas y relaciones bien definidas.',
+  icon: 'db',
+  title: 'Bases de datos',
+  text: 'Modelado e implementación en PostgreSQL, MySQL y SQLite, y ahora MongoDB para datos no relacionales, con consultas y relaciones…',
   },
   {
     icon: 'shield',
