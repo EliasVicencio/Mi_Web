@@ -1,0 +1,27 @@
+/* ===== Banner de cookies ===== */
+.cookie{position:fixed;z-index:1200;left:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));
+  width:min(420px,calc(100% - 40px));background:var(--surface);color:var(--text);
+  border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+.cookie h2{font-size:1.05rem;margin:0 0 .4em;letter-spacing:0}
+.cookie p{color:var(--muted);font-size:.9rem;margin:0 0 14px}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-actions .btn{padding:9px 18px;font-size:.9rem}
+
+/* ===== Footer: enlaces legales ===== */
+.foot-links{display:flex;align-items:center;gap:16px;font-size:.9rem}
+.foot-links a{color:var(--muted)}
+.foot-links a:hover,.link-btn:hover{color:var(--accent)}
+.link-btn{background:none;border:0;padding:0;font:inherit;color:var(--muted);cursor:pointer;text-decoration:underline}
+
+/* ===== Página de privacidad ===== */
+.legal{max-width:760px}
+.legal h2{font-size:1.25rem;margin:2em 0 .5em}
+.legal p,.legal li{color:var(--muted)}
+.legal ul{padding-left:1.2em;margin:0 0 1em}
+.legal li{margin-bottom:.8em}
+.legal strong{color:var(--text)}
+.legal .updated{font:.85rem var(--mono);color:var(--muted)}
+.table-wrap{overflow-x:auto;margin:0 0 1em}
+.legal table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+.legal th,.legal td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top}
+.legal th{color:var(--text)}

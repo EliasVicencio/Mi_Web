@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
 import usePageEffects from '../hooks/usePageEffects.js';
+import CookieBanner from './ConsentBanner.jsx';
 
 // Todo lo que se repite en todas las páginas (navbar, footer, barra de progreso)
 export default function Layout() {
@@ -19,6 +20,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <CookieBanner />
     </>
   );
 }

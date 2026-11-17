@@ -6,6 +6,7 @@ import Projects from './pages/Projects.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import NotFound from './pages/NotFound.jsx';
+import Privacy from './pages/Privacy.jsx';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="projects" element={<Projects />} />
         <Route path="sobre-mi" element={<About />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="privacidad" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
