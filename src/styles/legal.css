@@ -21,6 +21,8 @@
 .legal li{margin-bottom:.8em}
 .legal strong{color:var(--text)}
 .legal .updated{font:.85rem var(--mono);color:var(--muted)}
+.legal .legal-meta{font:.85rem var(--mono);color:var(--muted);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;background:color-mix(in srgb,var(--surface) 60%,transparent)}
+.legal .back-home{margin-top:2.5em}
 .table-wrap{overflow-x:auto;margin:0 0 1em}
 .legal table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
 .legal th,.legal td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top}
